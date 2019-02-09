@@ -1,21 +1,18 @@
 import { isAbsolute, join } from 'path';
 import { spawn as childProcessSpawn } from 'child_process';
-
-import signalExit = require('signal-exit');
-
-import { readConfigFiles } from '@carnesen/bitcoin-config';
 import { platform } from 'os';
 
-type Options = Partial<{
-  bitcoinHome: string;
-  configFilePath: string;
-}>;
+import signalExit = require('signal-exit');
+import { readConfigFiles } from '@carnesen/bitcoin-config';
+import { ServiceOptions } from './constants';
+import { getConfigFilePath } from './get-config-file-path';
 
 const BITCOIND_EXE = platform() === 'win32' ? 'bitcoind.exe' : 'bitcoind';
 
-export function spawnBitcoind(options: Options = {}): Promise<void> {
+export function spawnBitcoind(options: ServiceOptions = {}): Promise<void> {
   return new Promise((resolve, reject) => {
-    const { configFilePath, bitcoinHome } = options;
+    const { conf, bitcoinHome } = options;
+    const configFilePath = getConfigFilePath(conf);
     if (bitcoinHome && !isAbsolute(bitcoinHome)) {
       throw new Error('If provided, "bitcoinHome" must be an absolute path');
     }

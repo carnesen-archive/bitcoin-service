@@ -1,11 +1,11 @@
 import { SectionedConfig, writeConfigFile } from '@carnesen/bitcoin-config';
 import * as tempy from 'tempy';
-import { spawnBitcoind } from '../spawn';
+import { spawnBitcoind } from '../spawn-bitcoind';
 
 const spawnMocked = (config: SectionedConfig) => {
-  const configFilePath = tempy.file();
-  writeConfigFile(configFilePath, config);
-  return spawnBitcoind({ configFilePath, bitcoinHome: process.cwd() });
+  const conf = tempy.file();
+  writeConfigFile(conf, config);
+  return spawnBitcoind({ conf, bitcoinHome: process.cwd() });
 };
 
 const catchMocked = async (config: SectionedConfig) => {
