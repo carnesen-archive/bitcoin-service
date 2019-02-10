@@ -14,19 +14,20 @@
     "lint": "tslint --project .",
     "lint:fix": "npm run lint -- --fix",
     "test": "npm run lint && npm run test:unit && npm run build",
-    "test:unit": "jest --forceExit src",
-    "test:unit:coverage": "npm run test:unit -- --coverage",
-    "test:unit:coverage:watch": "npm run test:unit -- --coverage --watch",
-    "test:unit:watch": "npm run test:unit -- --watch",
+    "test:unit": "jest src",
+    "test:unit:watch": "npm run test:unit -- --watch --coverage",
+    "prepare": "ts-node src/install-software.ts",
     "preversion": "npm test && npm run build:clean",
     "postversion": "npm publish"
   },
   "dependencies": {
-    "@carnesen/bitcoin-config": "0.0.1",
+    "@carnesen/bitcoin-config": "0.0.3",
     "@types/signal-exit": "3.0.0",
     "signal-exit": "3.0.2"
   },
   "devDependencies": {
+    "@carnesen/bitcoin-software": "0.0.0",
+    "@carnesen/run-and-exit": "0.2.0",
     "@carnesen/tsconfig": "0.1.0",
     "@carnesen/tslint-config": "0.1.2",
     "@types/jest": "24.0.0",

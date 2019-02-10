@@ -5,11 +5,8 @@ import {
   toAbsolute,
 } from '@carnesen/bitcoin-config';
 import { readFileSync } from 'fs';
-import { ServiceOptions } from './constants';
-import { getConfigFilePath } from './get-config-file-path';
 
-export function getPid({ conf }: Pick<ServiceOptions, 'conf'>) {
-  const configFilePath = getConfigFilePath(conf);
+export function readPidFile(configFilePath: string) {
   const config = readConfigFiles(configFilePath);
   const chainName = getChainName(config);
   const defaultConfig = getDefaultConfig(chainName);

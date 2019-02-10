@@ -1,8 +1,7 @@
-import { ServiceOptions } from './constants';
-import { getPid } from './get-pid';
+import { readPidFile } from './read-pid-file';
 
-export function isServiceRunning(options: Pick<ServiceOptions, 'conf'>) {
-  const pid = getPid(options);
+export function isServiceRunning(configFilePath: string) {
+  const pid = readPidFile(configFilePath);
   if (pid === null) {
     return false;
   }
