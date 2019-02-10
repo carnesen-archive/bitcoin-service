@@ -26,7 +26,7 @@
     "signal-exit": "3.0.2"
   },
   "devDependencies": {
-    "@carnesen/bitcoin-software": "0.0.0",
+    "@carnesen/bitcoin-software": "0.0.1",
     "@carnesen/run-and-exit": "0.2.0",
     "@carnesen/tsconfig": "0.1.0",
     "@carnesen/tslint-config": "0.1.2",
