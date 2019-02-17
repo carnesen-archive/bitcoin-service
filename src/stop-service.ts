@@ -18,7 +18,7 @@ export async function stopService(configFilePath: string) {
     process.kill(pid, 'SIGINT');
   }
   let retries = 5;
-  while (isServiceRunning(configFilePath)) {
+  while (await isServiceRunning(configFilePath)) {
     await delay();
     if (retries > 0) {
       retries -= 1;

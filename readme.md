@@ -1,12 +1,6 @@
-# @carnesen/bitcoin-service [![Build Status](https://travis-ci.com/carnesen/bitcoin-service.svg?branch=master)](https://travis-ci.com/carnesen/bitcoin-service)
+# @carnesen/bitcoin-service [![npm version](https://badge.fury.io/js/%40carnesen%2Fbitcoin-service.svg)](https://badge.fury.io/js/%40carnesen%2Fbitcoin-service) [![Build Status](https://travis-ci.com/carnesen/bitcoin-service.svg?branch=master)](https://travis-ci.com/carnesen/bitcoin-service)
 
-A Node.js library for managing the bitcoin service `bitcoind`
-
-## Install
-```
-$ npm install @carnesen/bitcoin-service
-```
-The package includes runtime JavaScript files suitable for Node.js >=8 as well as the corresponding TypeScript type declarations.
+A Node.js library for managing the bitcoin service `bitcoind`. The package includes runtime JavaScript files suitable for Node.js >=8 as well as the corresponding TypeScript type declarations.
 
 ## Usage
 
@@ -54,8 +48,11 @@ Stops `bitcoind` if it's running
 ### restartService(configFilePath, bitcoinHome?): Promise\<{changed}>
 Stops and starts `bitcoind` as documented above.
 
+### isServiceRunning(configFilePath): Promise\<boolean>
+The returned promise resolves to `true` if the service is running or `false` if it is not.
+
 ## More information
-This library has a number of unit tests with >95% coverage. Check out [the tests directory](src/__tests__) for more examples of how it works. If you encounter any bugs or have any questions or feature requests, please don't hesitate to file an issue or submit a pull request on this project's repository on GitHub.
+Check out [the tests directory](src/__tests__) for more examples of how it works. If you encounter any bugs or have any questions or feature requests, please don't hesitate to file an issue or submit a pull request on this project's repository on GitHub.
 
 ## Related
 - [@carnesen/bitcoin-service-cli](https://github.com/carnesen/bitcoin-service-cli): A Node.js CLI and library for managing the bitcoin server process `bitcoind`

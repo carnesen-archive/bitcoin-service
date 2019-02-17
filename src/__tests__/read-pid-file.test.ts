@@ -22,6 +22,16 @@ describe(subject.name, () => {
     expect(subject(configFilePath)).toBe(null);
   });
 
+  it('returns null if there is no conf file', () => {
+    expect(subject('/foo/bar')).toBe(null);
+  });
+
+  it('re-throws any non-ENOENT error encountered reading the config file', () => {
+    const configFilePath = join(tempy.directory(), 'bitcoin.conf');
+    writeFileSync(configFilePath, '', { mode: '000' });
+    expect(() => subject(configFilePath)).toThrow('permission denied');
+  });
+
   it('throws if the pid file contains a non-number', () => {
     const datadir = tempy.directory();
     const pid = 'carl';

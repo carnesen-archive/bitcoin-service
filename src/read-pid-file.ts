@@ -7,7 +7,15 @@ import {
 import { readFileSync } from 'fs';
 
 export function readPidFile(configFilePath: string) {
-  const config = readConfigFiles(configFilePath);
+  let config: ReturnType<typeof readConfigFiles>;
+  try {
+    config = readConfigFiles(configFilePath);
+  } catch (ex) {
+    if (ex.code === 'ENOENT') {
+      return null;
+    }
+    throw ex;
+  }
   const chainName = getChainName(config);
   const defaultConfig = getDefaultConfig(chainName);
   const pidFilePath = toAbsolute(

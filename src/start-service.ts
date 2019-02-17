@@ -9,7 +9,8 @@ const BITCOIND_EXE = platform() === 'win32' ? 'bitcoind.exe' : 'bitcoind';
 
 export async function startService(configFilePath: string, bitcoinHome?: string) {
   const returnValue = { changed: false };
-  if (!isServiceRunning(configFilePath)) {
+  const running = await isServiceRunning(configFilePath);
+  if (!running) {
     returnValue.changed = true;
     updateConfigFile(configFilePath, { daemon: true });
     await new Promise((resolve, reject) => {

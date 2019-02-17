@@ -1,6 +1,6 @@
 import { readPidFile } from './read-pid-file';
 
-export function isServiceRunning(configFilePath: string) {
+export async function isServiceRunning(configFilePath: string) {
   const pid = readPidFile(configFilePath);
   if (pid === null) {
     return false;
