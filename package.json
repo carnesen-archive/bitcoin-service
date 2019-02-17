@@ -1,7 +1,7 @@
 {
   "name": "@carnesen/bitcoin-service",
   "description": "A Node.js library for managing the bitcoin service `bitcoind`",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "engines": {
