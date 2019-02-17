@@ -39,7 +39,7 @@ Optional `string`. Absolute path of a directory where the bitcoin server softwar
 #### `changed`
 `boolean`. Is `false` if `bitcoind` was already running, `true` if the service was successfully started.
 
-### `stopService(configFilePath): Promise\<{changed}>`
+### `stopService(configFilePath): Promise<{changed}>`
 Stops `bitcoind` if it's running
 
 #### `changed`
