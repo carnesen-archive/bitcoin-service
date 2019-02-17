@@ -27,7 +27,7 @@ Bitcoin server starting
 ```
 
 ## API
-### `startService(configFilePath, bitcoinHome?): Promise\<{changed}>`
+### `startService(configFilePath, bitcoinHome?): Promise<{changed}>`
 Sets `daemon` to `true` in the configuration file and starts `bitcoind` if it's not running already
 
 #### `configFilePath`
@@ -45,10 +45,10 @@ Stops `bitcoind` if it's running
 #### `changed`
 `boolean`. Is `false` if `bitcoind` wasn't running. Is `true` if the service was running and successfully stopped.
 
-### `restartService(configFilePath, bitcoinHome?): Promise\<{changed}>`
+### `restartService(configFilePath, bitcoinHome?): Promise<{changed}>`
 Stops and starts `bitcoind` as documented above.
 
-### `isServiceRunning(configFilePath): Promise\<boolean>`
+### `isServiceRunning(configFilePath): Promise<boolean>`
 The returned promise resolves to `true` if the service is running or `false` if it is not.
 
 ## More information
